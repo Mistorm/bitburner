@@ -1,4 +1,4 @@
-import { scan } from "script/auto/autoLib";
+import { scan } from "./script/auto/autoLib.js";
 
 const filesToDeploy = [
 	"/script/control/growSlave.js",

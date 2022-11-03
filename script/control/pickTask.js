@@ -11,6 +11,7 @@ export async function main(ns) {
 
 	var taskPort = portLib.getTaskPort(ns);
 	var targetPort = portLib.getTargetPort(ns);
+
 	var host = ns.getHostname()
 
 	while (true) {

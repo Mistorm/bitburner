@@ -1,10 +1,10 @@
-import { scan } from "script/auto/autoLib";
+import { scan } from "./script/auto/autoLib.js";
 
 /** @param {NS} ns */
 export async function main(ns) {
 
 	const SEPERATOR = ";";
-	const hosts = scan(ns, ns.getHostname(), []);
+	let hosts = scan(ns, ns.getHostname(), new Array());
 
 	let statsList = [];
 
@@ -16,8 +16,8 @@ export async function main(ns) {
 	statsList.sort((a, b) => a.getMoneyForMultithreadedHack() - b.getMoneyForMultithreadedHack());
 
 	for(const stats of statsList) {
-		const formattedMoney = ns.nFormat(stats.getMoneyPerSecond(), "($ 0.00 a)");
-		const formattedMultiThreadMoney = ns.nFormat(stats.getMoneyForMultithreadedHack(), "($ 0.00 a)");
+		let formattedMoney = ns.nFormat(stats.getMoneyPerSecond(), "($ 0.00 a)");
+		let formattedMultiThreadMoney = ns.nFormat(stats.getMoneyForMultithreadedHack(), "($ 0.00 a)");
 		//ns.tprint(stats);
 		ns.tprintf("%s: %s per second, %s multithreaded (%f est./%f real threads)", 
 			stats.host, 
